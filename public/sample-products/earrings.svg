@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <rect width="900" height="900" fill="#efe7dc"/>
+  <g fill="none" stroke="#b88a44" stroke-width="28">
+    <circle cx="330" cy="380" r="90"/>
+    <circle cx="570" cy="380" r="90"/>
+    <path d="M330 470c0 120-80 110-80 210"/>
+    <path d="M570 470c0 120 80 110 80 210"/>
+  </g>
+  <g fill="#f7f4ed" stroke="#d6c9af" stroke-width="10">
+    <circle cx="330" cy="380" r="42"/>
+    <circle cx="570" cy="380" r="42"/>
+  </g>
+  <text x="450" y="780" text-anchor="middle" font-family="Georgia, serif" font-size="44" fill="#2b2119">Бриллианты</text>
+</svg>

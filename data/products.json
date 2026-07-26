@@ -1,0 +1,194 @@
+[
+  {
+    "id": "item-001",
+    "slug": "vintage-peridot-diamond-ring",
+    "name": "Винтажное кольцо с перидотом и бриллиантами",
+    "nameEn": "Vintage Peridot and Diamond Ring",
+    "price": 1095,
+    "currency": "EUR",
+    "category": "Кольца/Браслеты/Запонки",
+    "era": "Ретро и Винтаж",
+    "eraEn": "Retro & Vintage",
+    "material": "белое золото 585",
+    "materialEn": "585 white gold",
+    "stone": "перидот, бриллианты около 0,32 ct., I-j/si2-p1",
+    "stoneEn": "Peridot, diamonds approx. 0.32 ct, I-J/SI2-P1",
+    "status": "available",
+    "image": "/product-images/item-08-01.png",
+    "images": [
+      "/product-images/item-08-01.png"
+    ],
+    "description": "Элегантное винтажное кольцо, сделанное в Европе, в 90х годах прошлого столетия. При чем в стиле 60х.\n\nВечная классика в белом золоте 585 пробы (стоит клеймо), выполненное в утончённой ретро-стилистике, вдохновлённой классическими цветочными мотивами, когда особенно ценили баланс между благородной классикой и современной лёгкостью форм.\n\nВ высокую посадку инкрустирован натуральный перидот насыщенного зелёного оттенка, весом около 0,7ct. Перидот обрамлён ореолом из бриллиантов общей массой 0,32 ct (стоит клеймо), ориентировочная чистота и цвет: I-j/si2-p1.",
+    "descriptionEn": "An elegant vintage ring made in Europe in the 1990s with a refined 1960s spirit. Crafted in 585 white gold, it features a vivid natural peridot of approximately 0.7 ct framed by a halo of diamonds totaling about 0.32 ct.",
+    "details": [
+      "17",
+      "2,64 гр.",
+      "Ретро и Винтаж"
+    ],
+    "detailsEn": [
+      "Size 17",
+      "2.64 g",
+      "Retro & Vintage"
+    ]
+  },
+  {
+    "id": "item-002",
+    "slug": "art-deco-ruby-old-cut-diamond-ring",
+    "name": "Золотое кольцо с рубином и бриллиантами старой огранки",
+    "nameEn": "Art Deco Ruby and Old-Cut Diamond Ring",
+    "price": 1950,
+    "currency": "EUR",
+    "category": "Кольца/Браслеты/Запонки",
+    "era": "Арт Деко",
+    "eraEn": "Art Deco",
+    "material": "белое золото 585",
+    "materialEn": "585 white gold",
+    "stone": "бриллианты старой огранки около 0,25 Карат. Рубин около 0,13 Карат",
+    "stoneEn": "Old-cut diamonds approx. 0.25 ct, ruby approx. 0.13 ct",
+    "status": "available",
+    "image": "/product-images/item-09-02.png",
+    "images": [
+      "/product-images/item-09-02.png"
+    ],
+    "description": "Украшение, которое полностью создает образ и относиться к категории «моя прелесть» 🤤 для всех зависимых от высококачественных украшений, осколок роскошной эпохи Ар-деко (1920–1940-е годы).\n\nПочти век назад ювелир вручную выводил эти строгие геометрические линии и украшал грани деликатным мильгрифом, инкрустировал сочный, словно рубин. Два бриллианта, старой европейской огранки, инкрустированы по бокам. У них совершенно другое, «живое» и мягкое мерцание, которое вы никогда не найдете в современных магазинах масс-маркета. \n\nСтаринное сокровище изготовлено из белого золота 585 пробы с двумя  бриллиантами общим примерным весом 0,25 Карат и натуральным рубином весом около 0,13 карат, общий вес кольца 3,4 грамма, отлично подойдет на пальчик 19 размера.\n\nКрасавец трестировался дважды! Один раз у оценщика аукционного дома в Австрии и повторно проводили оценку мы.",
+    "descriptionEn": "An Art Deco ring in 585 white gold with crisp geometry, delicate millegrain work, a natural ruby, and two old European-cut diamonds. The stones have the soft, living sparkle that makes early 20th-century jewelry so distinctive.",
+    "details": [
+      "19",
+      "3,4 гр.",
+      "Арт Деко"
+    ],
+    "detailsEn": [
+      "Size 19",
+      "3.4 g",
+      "Art Deco"
+    ]
+  },
+  {
+    "id": "item-003",
+    "slug": "victorian-ruby-rose-cut-diamond-brooch",
+    "name": "Брошь с рубинами и алмазами огранки роза",
+    "nameEn": "Victorian Ruby and Rose-Cut Diamond Brooch",
+    "price": 1295,
+    "currency": "EUR",
+    "category": "Броши/Булавки",
+    "era": "Викторианская эпоха",
+    "eraEn": "Victorian",
+    "material": "золото 750 пробы, серебро",
+    "materialEn": "750 gold and silver",
+    "stone": "примерный вес алмазов 0,15 карат, примерный общий вес рубинов 0,3 карата",
+    "stoneEn": "Rose-cut diamonds approx. 0.15 ct, rubies approx. 0.3 ct total",
+    "status": "available",
+    "image": "/product-images/item-09-03.png",
+    "images": [
+      "/product-images/item-09-03.png"
+    ],
+    "description": "Волшебство французской Belle Époque, застывшее в драгоценных металлах и камнях. Антикварная универсальная брошь, которая может стать шикарной подвеской.\n\nПеред вами истинный образец парижского ювелирного романтизма — антикварная брошь, дошедшая до нас из последней четверти 19 века, что доказывает парижское клеймо, которое начали использовать во Франции в 1847 году.\n\nЭто благородное трио из теплого золота 750 пробы (основа), старинного серебра, предположительно 800 пробы, и россыпи природных камней. Вручную граненные натуральные рубины и алмазы огранки «Роза» инкрустированы в серебро, покрытое красивой патиной времени. \n\nУкрашение находится в отличном антикварном состоянии, имеется честный след её долгой и насыщенной жизни, в виде отсутствия одного крошечного алмаза, что уже учтено в стоимости. Вес украшения 4,4 гр., общий примерный вес алмазов 0,15 карат, примерный общий вес рубинов 0,3 карата, размеры 3,1*1,7 см.",
+    "descriptionEn": "A romantic antique brooch that can also be worn as a pendant. French Belle Epoque character in warm 750 gold, antique silver, natural rubies, and rose-cut diamonds. One tiny diamond is missing, which is already reflected in the price.",
+    "details": [
+      "3,1*1,7 см.",
+      "4,4 гр.",
+      "Викторианская эпоха"
+    ],
+    "detailsEn": [
+      "3.1 x 1.7 cm",
+      "4.4 g",
+      "Victorian"
+    ]
+  },
+  {
+    "id": "item-004",
+    "slug": "edwardian-gold-diamond-earrings",
+    "name": "Золотые серьги с бриллиантами",
+    "nameEn": "Edwardian Gold Diamond Earrings",
+    "price": 2800,
+    "currency": "EUR",
+    "category": "Серьги/Клипсы",
+    "era": "Эдвардианский период",
+    "eraEn": "Edwardian",
+    "material": "золото 15 Карат",
+    "materialEn": "15 ct gold",
+    "stone": "около 0,34 Карата",
+    "stoneEn": "Diamonds approx. 0.34 ct total",
+    "status": "available",
+    "image": "/product-images/item-11-04.png",
+    "images": [
+      "/product-images/item-11-04.png"
+    ],
+    "description": "Невероятный экземпляр крупных старинных серег залетел в наш клуб - это, без преувеличений, пара одна на миллион!\n\nКричащий дизайн викторианской эпохи нарушает то, что камни вставленные в старинных серьгах - это алмазы ограненные в бриллиант, а такая технология гранения относительно молода. Бриллиант, который популярен в нашем мире имеет 57 граней и впервые появилась в 1910-м году.\n\nМысли о том что находка современная реплика не давали покоя, но дизайн и работа по золоту говорили об обратном. Присмотревшись к клейму стало понятно, что оно старое. Такие пробы золота ставились на ювелирные украшения в Англии с 19-го века по 1931е годы. Ну и обычным математическим способом вычислили, что серьги были изготовлены в промежуток 1910-1931 годы, США/Англия.\n\nВеликолепное украшение изготовлено из золота 15 Карат, что приравнивается к золоту 625 пробы. Корпус декорирован ручной гравировкой и инкрустированы бриллианты: маленькие общим весом 0,04 карата и пара бриллиантов покрупнее примерно 0,30 карата. Серьги оснащены удобными шарнирными дужками. Общий вес сокровища 6,43 гр., размеры от дужки до нижних подвесов 6*2,1 см. Украшение тестировали реактивами и профессиональным геммологическим тестером.",
+    "descriptionEn": "A remarkable pair of antique 15 ct gold earrings with hand engraving and diamonds. Based on the hallmark and workmanship, they date to approximately 1910-1931, likely England or the United States. Finished with comfortable hinged hooks.",
+    "details": [
+      "6*2,1 см.",
+      "6,43 гр",
+      "Эдвардианский период"
+    ],
+    "detailsEn": [
+      "6 x 2.1 cm",
+      "6.43 g",
+      "Edwardian"
+    ]
+  },
+  {
+    "id": "item-005",
+    "slug": "art-deco-solid-gold-chain",
+    "name": "Золотая массивная цепь",
+    "nameEn": "Art Deco Solid Gold Chain",
+    "price": 1850,
+    "currency": "EUR",
+    "category": "Кулоны/Колье/Цепи",
+    "era": "Арт Деко",
+    "eraEn": "Art Deco",
+    "material": "золото 585",
+    "materialEn": "585 gold",
+    "stone": "",
+    "stoneEn": "",
+    "status": "available",
+    "image": "/product-images/item-12-05.png",
+    "images": [
+      "/product-images/item-12-05.png"
+    ],
+    "description": "Красавица антикварная золотая цепь эпохи Арт Деко, которая, как нам кажется, своим дизайном актуальна сейчас.\n\nАнтикварная цепочка, судя по государственным клеймам Австрии и характеристике работы, была изготовлена в промежуток между 20-х и 40-х годов прошлого столетия.\n\nУкрашение изготовлено из золота 585 пробы в цвете, которое у австрийских ювелиров называется «mittelgold». Дословный перевод «среднее золото» - это цвет золота что-то среднее между желтым и розовым золотом. Очень нежный и красивый оттенок, популярный в те времена.\n\nДлинные рифленые звенья с замысловатым соединением между ними изготовлены в смешанном стиле, то есть часть деталей отлита и другая доработана вручную. Великолепная работа из массива золота, где специально длинные звенья сделали полыми, чтоб облегчить цепочку. Длина украшения 42 см., общий вес",
+    "descriptionEn": "An antique Art Deco gold chain, likely made in Austria between the 1920s and 1940s. Crafted in 585 gold with a delicate mittelgold tone, elongated ribbed links, and a sculptural solid-gold presence.",
+    "details": [
+      "42 см.",
+      "11,91 гр.",
+      "Арт Деко"
+    ],
+    "detailsEn": [
+      "42 cm",
+      "11.91 g",
+      "Art Deco"
+    ]
+  },
+  {
+    "id": "item-006",
+    "slug": "art-nouveau-gold-pearl-diamond-bracelet",
+    "name": "Золотой браслет с жемчугом и бриллиантом",
+    "nameEn": "Art Nouveau Gold Pearl and Diamond Bracelet",
+    "price": 2295,
+    "currency": "EUR",
+    "category": "Кольца/Браслеты/Запонки",
+    "era": "Модерн",
+    "eraEn": "Art Nouveau",
+    "material": "золото 8 K",
+    "materialEn": "8 ct gold",
+    "stone": "натуральный жемчуг, бриллиант приблизительным весом 0,15 карат с качеством бриллианта тоже примерно I-j/vs1-vs2 .",
+    "stoneEn": "Natural pearls, diamond approx. 0.15 ct, approx. I-J/VS1-VS2",
+    "status": "available",
+    "image": "/product-images/item-13-06.png",
+    "images": [
+      "/product-images/item-13-06.png"
+    ],
+    "description": "Тихая роскошь эпохи Арт Нуво и по совместительству великолепный антикварный браслет, ориентировочно, сделанный в 1900е годы плюс/минус десятилетие. Более чем 100-летний браслет старичком совсем не назовешь, скорее наоборот, веет нежностью и юностью.\n\nСтаринный браслет изготовлен из нежного 8-ми каратного розового золота, в которое инкрустированы две натуральные жемчужины великолепного качества и один бриллиант приблизительным весом 0,15 карат с качеством бриллианта тоже примерно I-j/vs1-vs2 .\n\nСостояние для антикварного украшение прекрасное, отсутствуют клейма и маркировки, поэтому он проверялся два раза: у оценщика в Вене и в нашем магазинчике. Общий вес браслета 12,28 гр., внутренняя длина браслета 19,5 см. с погрешностью.",
+    "descriptionEn": "An antique Art Nouveau bracelet, likely from the early 1900s. Delicate 8 ct gold, two natural pearls, and a diamond of approximately 0.15 ct create a quiet, deeply feminine kind of luxury.",
+    "details": [
+      "внутренняя длина браслета 19,5 см. с погрешностью. ",
+      "12,28 гр.",
+      "Модерн"
+    ],
+    "detailsEn": [
+      "Inner length 19.5 cm",
+      "12.28 g",
+      "Art Nouveau"
+    ]
+  }
+]

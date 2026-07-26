@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <rect width="900" height="900" fill="#f2eadf"/>
+  <path d="M450 185v140" stroke="#b88a44" stroke-width="26" stroke-linecap="round"/>
+  <path d="M340 330h220l75 105-185 245-185-245z" fill="#1b6a4f"/>
+  <path d="M340 330h220l-110 350z" fill="#2a8a68" opacity=".85"/>
+  <path d="M340 330h220l75 105-185 245-185-245z" fill="none" stroke="#b88a44" stroke-width="22"/>
+  <text x="450" y="780" text-anchor="middle" font-family="Georgia, serif" font-size="44" fill="#2b2119">Изумруд</text>
+</svg>

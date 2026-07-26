@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <rect width="900" height="900" fill="#ffffff"/>
+  <rect x="210" y="340" width="480" height="310" fill="#151515"/>
+  <rect x="245" y="380" width="410" height="230" fill="#262626"/>
+  <path d="M255 340c50-80 120-120 195-120s145 40 195 120" fill="none" stroke="#b98a3d" stroke-width="28"/>
+  <rect x="292" y="420" width="316" height="132" fill="#f5efe5"/>
+  <text x="450" y="760" text-anchor="middle" font-family="Georgia, serif" font-size="38" fill="#111">Антикварный предмет</text>
+</svg>

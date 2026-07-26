@@ -1,0 +1,44 @@
+[
+  {
+    "deliveryTime": "2-5 дней",
+    "region": "Австрия",
+    "smallParcelFrom": "6",
+    "insuredTo510": "8"
+  },
+  {
+    "deliveryTime": "6-12 дней",
+    "region": "Евросоюз",
+    "smallParcelFrom": "13",
+    "insuredTo510": "50"
+  },
+  {
+    "deliveryTime": "10-15 дней",
+    "region": "Европа",
+    "smallParcelFrom": "13",
+    "insuredTo510": "52"
+  },
+  {
+    "deliveryTime": "30-60 дней",
+    "region": "Россия",
+    "smallParcelFrom": "40",
+    "insuredTo510": "40"
+  },
+  {
+    "deliveryTime": "10-20 дней",
+    "region": "Америка",
+    "smallParcelFrom": "19",
+    "insuredTo510": "74"
+  },
+  {
+    "deliveryTime": "10-20 дней",
+    "region": "Канада",
+    "smallParcelFrom": "19",
+    "insuredTo510": "74"
+  },
+  {
+    "deliveryTime": "15-30 дней",
+    "region": "Азия",
+    "smallParcelFrom": "19",
+    "insuredTo510": "74"
+  }
+]

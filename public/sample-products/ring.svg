@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 900">
+  <rect width="900" height="900" fill="#f4eee7"/>
+  <circle cx="450" cy="540" r="180" fill="none" stroke="#b88a44" stroke-width="34"/>
+  <path d="M370 360h160l58 95-138 132-138-132z" fill="#1c5674"/>
+  <path d="M370 360h160l-80 227z" fill="#277596" opacity=".8"/>
+  <text x="450" y="780" text-anchor="middle" font-family="Georgia, serif" font-size="44" fill="#2b2119">Золото и сапфир</text>
+</svg>
