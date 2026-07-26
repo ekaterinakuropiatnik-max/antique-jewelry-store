@@ -4,6 +4,8 @@ A bilingual editorial e-commerce concept for a curated antique and vintage
 jewelry collection. The project combines a premium storefront with a protected
 inventory and order-management workspace.
 
+[Live Demo](https://antique-jewelry-production.up.railway.app/)
+
 ![Antique Treasures catalog](public/product-images/contact-sheet.jpg)
 
 ## Highlights
