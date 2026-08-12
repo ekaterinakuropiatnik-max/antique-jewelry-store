@@ -126,7 +126,7 @@ const copy = {
     shop: 'Shop',
     about: 'About',
     archive: 'Archive of rarities',
-    materialsGuide: 'Materials guide',
+    materialsGuide: 'Antique Guide',
     search: 'Search',
     searchPlaceholder: 'Name, stone, metal, era',
     clear: 'Clear',
@@ -142,9 +142,9 @@ const copy = {
     productType: 'Product type',
     price: 'Price',
     era: 'Era',
-    metal: 'Composition & materials',
+    metal: 'Materials & Craft',
     backToCatalog: 'Back to shop',
-    material: 'Composition & materials',
+    material: 'Materials & Craft',
     stone: 'Stone',
     status: 'Status',
     reserved: 'reserved',
@@ -156,7 +156,7 @@ const copy = {
     archiveTitle: 'Archive of rarities',
     archiveLead: 'A record of exceptional pieces that have passed through our collection.',
     archivedPiece: 'From the archive · Sold',
-    materialsTitle: 'Materials guide',
+    materialsTitle: 'Antique Guide',
     materialsLead: 'Discover rare, historic, and unusual materials found in antique objects.',
     readMore: 'Read more',
     source: 'External source',
@@ -225,7 +225,7 @@ const copy = {
     shop: 'Магазин',
     about: 'О нас',
     archive: 'Архив редкостей',
-    materialsGuide: 'Справочник материалов',
+    materialsGuide: 'Антикварный гид',
     search: 'Поиск',
     searchPlaceholder: 'Название, камень, металл, эпоха',
     clear: 'Очистить',
@@ -255,7 +255,7 @@ const copy = {
     archiveTitle: 'Архив редкостей',
     archiveLead: 'История исключительных предметов, которые побывали в нашей коллекции.',
     archivedPiece: 'Из архива · Продано',
-    materialsTitle: 'Справочник материалов',
+    materialsTitle: 'Антикварный гид',
     materialsLead: 'Редкие, исторические и необычные материалы, встречающиеся в антикварных предметах.',
     readMore: 'Читать подробнее',
     source: 'Внешний источник',
@@ -712,8 +712,6 @@ const matchesPriceRange = (price, range) => {
   if (range === 'Свыше 1000') return value > 1000;
   return true;
 };
-
-const materialGroups = ['Золото', 'Серебро', 'Другие металлы'];
 const orderStatuses = ['Новый заказ', 'В обработке', 'Ожидает отправки', 'Отправлен', 'Завершен', 'Отменен'];
 const paymentStatuses = ['Ожидает подтверждения', 'Ожидает оплаты', 'Оплачен', 'Оплата не прошла', 'Возврат'];
 const statsPeriods = [
@@ -1058,14 +1056,15 @@ function MaterialsPage({ materials, navigate, language, t }) {
 
 function MaterialPage({ material, products, navigate, language, t }) {
   const related = products.filter((product) => (product.materialIds || []).includes(material.id));
+  const description = productText(material, 'description', language);
   return (
     <section className="contentPage materialPage">
       <button className="backLink" onClick={() => navigate('/materials')}>{t.materialsGuide}</button>
       <p className="eyebrow">{t.materialsGuide}</p>
       <h1>{productText(material, 'name', language)}</h1>
       {material.image && <img className="materialHeroImage" src={material.image} alt={productText(material, 'name', language)} />}
-      <div className="contentBody">
-        <p>{productText(material, 'description', language)}</p>
+      <div className="contentBody materialArticleBody">
+        {String(description || '').split(/\n\s*\n/).filter(Boolean).map((paragraph, index) => <p key={`${index}-${paragraph.slice(0, 24)}`}>{paragraph}</p>)}
         {material.sourceUrl && <p><a href={material.sourceUrl} target="_blank" rel="noreferrer">{t.source} ↗</a></p>}
       </div>
       {related.length > 0 && (
@@ -1120,14 +1119,15 @@ function LegalPage({ page }) {
 }
 
 function Feed({ products, categories, searchQuery, navigate, language, t }) {
-  const [filter, setFilter] = useState({ type: '', price: '', era: '', material: '' });
+  const priceCeiling = Math.max(1000, Math.ceil(Math.max(...products.map((product) => Number(product.price || 0)), 0) / 100) * 100);
+  const [filter, setFilter] = useState({ type: '', priceMax: null, era: '' });
+  const selectedPrice = filter.priceMax ?? priceCeiling;
   const query = searchQuery.trim().toLowerCase();
   const available = products.filter((product) => {
     if (product.status === 'sold') return false;
     if (filter.type && normalizeCategory(product.category) !== filter.type) return false;
     if (filter.era && !product.era.includes(filter.era.replace(' украшения', ''))) return false;
-    if (!matchesPriceRange(product.price, filter.price)) return false;
-    if (filter.material && materialGroupFor(product.material) !== filter.material) return false;
+    if (filter.priceMax !== null && Number(product.price || 0) > filter.priceMax) return false;
     if (query) {
       const haystack = [
         product.name,
@@ -1152,32 +1152,30 @@ function Feed({ products, categories, searchQuery, navigate, language, t }) {
   return (
     <section className="feedPage">
       <aside className="collectionRail">
-        <button className={!filter.type && !filter.price && !filter.era && !filter.material ? 'activeFilter' : ''} onClick={() => setFilter({ type: '', price: '', era: '', material: '' })}>{t.viewAll}</button>
+        <button className={!filter.type && filter.priceMax === null && !filter.era ? 'activeFilter' : ''} onClick={() => setFilter({ type: '', priceMax: null, era: '' })}>{t.viewAll}</button>
         <div className="railGroup">
           {categories.productTypes.map((item) => (
             <button className={filter.type === item ? 'activeFilter' : ''} key={item} onClick={() => setFilter((current) => ({ ...current, type: current.type === item ? '' : item }))}>{labelFor(item, 'productTypes', language)}</button>
           ))}
         </div>
-        <div className="railGroup">
-          {categories.priceRanges.map((item) => (
-            <button className={filter.price === item ? 'activeFilter' : ''} key={item} onClick={() => setFilter((current) => ({ ...current, price: current.price === item ? '' : item }))}>{labelFor(item, 'priceRanges', language)}</button>
-          ))}
+        <div className="railGroup priceSliderFilter">
+          <div><span>{t.price}</span><strong>{filter.priceMax === null ? '∞' : money(filter.priceMax, 'EUR', language)}</strong></div>
+          <input aria-label={t.price} type="range" min="0" max={priceCeiling} step="25" value={selectedPrice} onChange={(event) => {
+            const value = Number(event.target.value);
+            setFilter((current) => ({ ...current, priceMax: value >= priceCeiling ? null : value }));
+          }} />
+          <small>€0</small>
         </div>
         <div className="railGroup">
           {categories.eras.map((item) => (
             <button className={filter.era === item ? 'activeFilter' : ''} key={item} onClick={() => setFilter((current) => ({ ...current, era: current.era === item ? '' : item }))}>{labelFor(item, 'eras', language)}</button>
           ))}
         </div>
-        <div className="railGroup">
-          {(categories.materials || materialGroups).map((item) => (
-            <button className={filter.material === item ? 'activeFilter' : ''} key={item} onClick={() => setFilter((current) => ({ ...current, material: current.material === item ? '' : item }))}>{labelFor(item, 'materials', language)}</button>
-          ))}
-        </div>
       </aside>
       <div className="collectionArea">
         <div className="collectionMeta">{selectedCount} {t.pieces}</div>
         <div className="mobileFilters">
-          <button className="resetFilter" onClick={() => setFilter({ type: '', price: '', era: '', material: '' })}>{t.resetFilters}</button>
+          <button className="resetFilter" onClick={() => setFilter({ type: '', priceMax: null, era: '' })}>{t.resetFilters}</button>
           <details>
             <summary>{t.productType}{filter.type ? `: ${labelFor(filter.type, 'productTypes', language)}` : ''}</summary>
             <div>
@@ -1187,11 +1185,12 @@ function Feed({ products, categories, searchQuery, navigate, language, t }) {
             </div>
           </details>
           <details>
-            <summary>{t.price}{filter.price ? `: ${labelFor(filter.price, 'priceRanges', language)}` : ''}</summary>
-            <div>
-              {categories.priceRanges.map((item) => (
-                <button className={filter.price === item ? 'activeFilter' : ''} key={item} onClick={() => setFilter((current) => ({ ...current, price: current.price === item ? '' : item }))}>{labelFor(item, 'priceRanges', language)}</button>
-              ))}
+            <summary>{t.price}: {filter.priceMax === null ? '∞' : money(filter.priceMax, 'EUR', language)}</summary>
+            <div className="mobilePriceSlider">
+              <input aria-label={t.price} type="range" min="0" max={priceCeiling} step="25" value={selectedPrice} onChange={(event) => {
+                const value = Number(event.target.value);
+                setFilter((current) => ({ ...current, priceMax: value >= priceCeiling ? null : value }));
+              }} />
             </div>
           </details>
           <details>
@@ -1199,14 +1198,6 @@ function Feed({ products, categories, searchQuery, navigate, language, t }) {
             <div>
               {categories.eras.map((item) => (
                 <button className={filter.era === item ? 'activeFilter' : ''} key={item} onClick={() => setFilter((current) => ({ ...current, era: current.era === item ? '' : item }))}>{labelFor(item, 'eras', language)}</button>
-              ))}
-            </div>
-          </details>
-          <details>
-            <summary>{t.metal}{filter.material ? `: ${labelFor(filter.material, 'materials', language)}` : ''}</summary>
-            <div>
-              {(categories.materials || materialGroups).map((item) => (
-                <button className={filter.material === item ? 'activeFilter' : ''} key={item} onClick={() => setFilter((current) => ({ ...current, material: current.material === item ? '' : item }))}>{labelFor(item, 'materials', language)}</button>
               ))}
             </div>
           </details>
@@ -1290,7 +1281,7 @@ function ProductPage({ product, materials, addToCart, navigate, language, t }) {
         <p className="eyebrow">{labelFor(product.category, 'productTypes', language)} · {labelFor(product.era, 'eras', language)}</p>
         <h1>{productText(product, 'name', language)}</h1>
         <p className="price">{money(product.price, product.currency, language)}</p>
-        <p>{linkedDescription(productText(product, 'description', language))}</p>
+        <p className="preserveParagraphs">{linkedDescription(productText(product, 'description', language))}</p>
         <dl>
           <div>
             <dt>{t.material}</dt>
@@ -1305,7 +1296,7 @@ function ProductPage({ product, materials, addToCart, navigate, language, t }) {
                 : productText(product, 'material', language)}
             </dd>
           </div>
-          <div><dt>{t.stone}</dt><dd>{productText(product, 'stone', language) || t.уточняется}</dd></div>
+          {productText(product, 'stone', language) && <div><dt>{t.stone}</dt><dd>{productText(product, 'stone', language)}</dd></div>}
           <div><dt>{t.status}</dt><dd>{product.status === 'sold' ? t.archivedPiece : product.status === 'reserved' ? t.reserved : t.available}</dd></div>
         </dl>
         <ul className="productDetailsList">
@@ -1761,14 +1752,14 @@ function ProductAdmin({ password, products, categories, materials, refresh, view
             <span className="adminLanguageLabel">Русская версия · RU</span>
             <label>Название товара<input value={product.name} onChange={(event) => update('name', event.target.value)} /></label>
             <label>Описание<textarea value={product.description} onChange={(event) => update('description', event.target.value)} /></label>
-            <label>Камень<input value={product.stone} onChange={(event) => update('stone', event.target.value)} /></label>
+            <label>Камень или вставка (если применимо)<input value={product.stone} onChange={(event) => update('stone', event.target.value)} placeholder="Оставьте пустым, если у предмета нет камня или вставки" /></label>
             <label>Дополнительные детали через запятую<input value={product.details} onChange={(event) => update('details', event.target.value)} /></label>
           </div>
           <div className="adminLanguageBlock">
             <span className="adminLanguageLabel">English version · EN</span>
             <label>Product name<input value={product.nameEn || ''} onChange={(event) => update('nameEn', event.target.value)} placeholder="English product name" /></label>
             <label>Description<textarea value={product.descriptionEn || ''} onChange={(event) => update('descriptionEn', event.target.value)} placeholder="Product description in English" /></label>
-            <label>Stone<input value={product.stoneEn || ''} onChange={(event) => update('stoneEn', event.target.value)} placeholder="Stone in English" /></label>
+            <label>Stone or insert (if applicable)<input value={product.stoneEn || ''} onChange={(event) => update('stoneEn', event.target.value)} placeholder="Leave blank when not applicable" /></label>
             <label>Additional details, comma-separated<input value={product.detailsEn || ''} onChange={(event) => update('detailsEn', event.target.value)} /></label>
             <small>Эти поля отображаются покупателю после переключения сайта на английский язык.</small>
           </div>
@@ -1904,8 +1895,8 @@ function MaterialAdmin({ password, materials, refresh }) {
           <label>Название — RU<input value={material.name} onChange={(event) => update('name', event.target.value)} /></label>
           <label>Название — EN<input value={material.nameEn} onChange={(event) => update('nameEn', event.target.value)} /></label>
         </div>
-        <label>Описание — RU<textarea value={material.description} onChange={(event) => update('description', event.target.value)} /></label>
-        <label>Описание — EN<textarea value={material.descriptionEn} onChange={(event) => update('descriptionEn', event.target.value)} /></label>
+        <label>Описание — RU<textarea value={material.description} onChange={(event) => update('description', event.target.value)} placeholder={'Разделяйте абзацы пустой строкой.\n\nТак текст будет красиво разбит на странице.'} /></label>
+        <label>Описание — EN<textarea value={material.descriptionEn} onChange={(event) => update('descriptionEn', event.target.value)} placeholder={'Separate paragraphs with an empty line.\n\nThey will appear as separate paragraphs on the page.'} /></label>
         <label>Синонимы через запятую<input value={material.aliasesText} onChange={(event) => update('aliasesText', event.target.value)} placeholder="томбак, tombac" /></label>
         <label>Внешняя ссылка на источник<input type="url" value={material.sourceUrl} onChange={(event) => update('sourceUrl', event.target.value)} placeholder="https://..." /></label>
         <label>Фотография материала<input type="file" accept="image/*" onChange={(event) => upload(event.target.files[0])} /></label>
