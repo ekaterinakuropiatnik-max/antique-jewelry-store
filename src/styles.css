@@ -2566,3 +2566,109 @@ textarea {
   .luxeCheckoutButton { width: 100%; }
   .cartSummary { align-items: stretch; flex-direction: column; }
 }
+
+@media (max-width: 620px) {
+  .adminPage {
+    background: #f6f6f4;
+  }
+
+  .adminHeader {
+    gap: 22px;
+    padding: 28px 18px 18px;
+    border-bottom: 1px solid #e3e3df;
+    background: #fff;
+  }
+
+  .adminHeader .brand {
+    max-width: none;
+    width: 100%;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #ededeb;
+    text-align: center;
+  }
+
+  .adminTopNav {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    width: 100%;
+  }
+
+  .adminTopNav button,
+  .adminHeader .adminTopNav button:not(.brand) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 48px;
+    padding: 11px 9px;
+    border: 1px solid #dededb;
+    border-radius: 8px;
+    background: #fff;
+    font-size: 9px;
+    line-height: 1.45;
+    letter-spacing: .14em;
+    text-align: center;
+    text-decoration: none;
+  }
+
+  .adminTopNav button:nth-child(1),
+  .adminTopNav button:nth-child(2) {
+    grid-column: 1 / -1;
+  }
+
+  .adminTopNav .active,
+  .adminHeader .adminTopNav .active {
+    border-color: #111;
+    background: #111;
+    color: #fff;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .12);
+  }
+
+  .adminSubnav {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    width: calc(100% - 28px);
+    margin: 14px auto 24px;
+    padding: 12px;
+    border: 1px solid #e0e0dc;
+    border-radius: 12px;
+    background: #ecece8;
+  }
+
+  .adminSubnav button {
+    min-height: 44px;
+    padding: 10px 14px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    font-size: 9px;
+    letter-spacing: .16em;
+    text-align: left;
+    text-decoration: none;
+  }
+
+  .adminSubnav .active {
+    border-color: #d9d9d5;
+    background: #fff;
+    box-shadow: 0 5px 16px rgba(0, 0, 0, .06);
+    text-decoration: none;
+  }
+
+  .adminGrid,
+  .ordersPanel,
+  .materialAdminLayout {
+    width: calc(100% - 28px);
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .stockList,
+  .productForm,
+  .ordersPanel,
+  .materialAdminList {
+    border-radius: 12px;
+  }
+}
