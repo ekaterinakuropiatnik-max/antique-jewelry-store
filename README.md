@@ -1,5 +1,9 @@
 # Antique Treasures
 
+[![React](https://img.shields.io/badge/React-19-20232a?logo=react)](https://react.dev/)
+[![Node.js](https://img.shields.io/badge/Node.js-native_HTTP-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+[![Live Demo](https://img.shields.io/badge/demo-live-b08d57)](https://antique-jewelry-production.up.railway.app/)
+
 A bilingual editorial e-commerce concept for a curated antique and vintage
 jewelry collection. The project combines a premium storefront with a protected
 inventory and order-management workspace.
@@ -21,6 +25,22 @@ inventory and order-management workspace.
 ## Stack
 
 React, Vite, Node.js, native HTTP APIs, and JSON persistence.
+
+## What this project demonstrates
+
+- End-to-end ownership of a commercial storefront concept
+- Customer journeys from discovery and filtering through checkout
+- A separate admin workflow for inventory, materials, and order processing
+- Backend API design, file uploads, validation, and protected admin routes
+- Deployment-ready configuration without committing production secrets
+
+## Architecture
+
+The Vite-powered React client talks to a lightweight Node.js HTTP server. The
+server exposes catalog, checkout, upload, and protected admin endpoints while
+persisting demo data as JSON. Runtime credentials are supplied only through
+environment variables. Admin credentials are kept in memory for the current
+page session and are never persisted in browser storage.
 
 ## Run locally
 

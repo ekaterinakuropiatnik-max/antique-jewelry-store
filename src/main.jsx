@@ -1585,9 +1585,9 @@ function Checkout({ cart, setCart, navigate, language, setLanguage, t }) {
 }
 
 function Admin({ products, categories, materials, refreshProducts, refreshMaterials, navigate }) {
-  const [email, setEmail] = useState(localStorage.getItem('admin-email') || '');
-  const [password, setPassword] = useState(localStorage.getItem('admin-password') || '');
-  const [isLoggedIn, setIsLoggedIn] = useState(localStorage.getItem('admin-auth') === 'true' && Boolean(localStorage.getItem('admin-password')));
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [section, setSection] = useState('products');
   const [productView, setProductView] = useState('stock');
   const [loginError, setLoginError] = useState('');
@@ -1599,16 +1599,12 @@ function Admin({ products, categories, materials, refreshProducts, refreshMateri
       setLoginError('Введите электронную почту и пароль.');
       return;
     }
-    localStorage.setItem('admin-email', email);
-    localStorage.setItem('admin-password', password);
-    localStorage.setItem('admin-auth', 'true');
     setIsLoggedIn(true);
   };
 
   const logout = () => {
-    localStorage.removeItem('admin-auth');
-    localStorage.removeItem('admin-password');
     setIsLoggedIn(false);
+    setEmail('');
     setPassword('');
   };
 
