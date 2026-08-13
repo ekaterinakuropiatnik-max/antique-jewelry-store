@@ -979,11 +979,9 @@ function Shell({ children, cartCount, navigate, searchQuery = '', setSearchQuery
           <button onClick={() => navigate('/about')}>{t.about}</button>
           <SearchBox searchQuery={searchQuery} setSearchQuery={setSearchQuery} t={t} />
           <button onClick={() => navigate('/admin')}>{t.signIn}</button>
-          <CartIconButton count={cartCount} label={t.cart} onClick={() => navigate('/cart')} />
           <LanguageSwitcher language={language} setLanguage={setLanguage} />
         </nav>
         <div className="mobileHeaderActions">
-          <CartIconButton count={cartCount} label={t.cart} onClick={() => navigate('/cart')} className="mobileCart" />
           <details className="mobileMenu">
             <summary>{t.menu}</summary>
             <div>
@@ -998,6 +996,7 @@ function Shell({ children, cartCount, navigate, searchQuery = '', setSearchQuery
           </details>
         </div>
       </header>
+      <CartIconButton count={cartCount} label={t.cart} onClick={() => navigate('/cart')} className="floatingCart" />
       <main>{children}</main>
       <footer className="siteFooter">
         <button onClick={() => navigate('/datenschutz')}>{t.dataProtection}</button>
@@ -1122,6 +1121,7 @@ function Feed({ products, categories, searchQuery, navigate, language, t }) {
   const priceCeiling = Math.max(1000, Math.ceil(Math.max(...products.map((product) => Number(product.price || 0)), 0) / 100) * 100);
   const [filter, setFilter] = useState({ type: '', priceMax: null, era: '' });
   const selectedPrice = filter.priceMax ?? priceCeiling;
+  const priceProgress = `${Math.min(100, Math.max(0, (selectedPrice / priceCeiling) * 100))}%`;
   const query = searchQuery.trim().toLowerCase();
   const available = products.filter((product) => {
     if (product.status === 'sold') return false;
@@ -1160,7 +1160,7 @@ function Feed({ products, categories, searchQuery, navigate, language, t }) {
         </div>
         <div className="railGroup priceSliderFilter">
           <div><span>{t.price}</span><strong>{filter.priceMax === null ? '∞' : money(filter.priceMax, 'EUR', language)}</strong></div>
-          <input aria-label={t.price} type="range" min="0" max={priceCeiling} step="25" value={selectedPrice} onChange={(event) => {
+          <input style={{ '--price-progress': priceProgress }} aria-label={t.price} type="range" min="0" max={priceCeiling} step="25" value={selectedPrice} onChange={(event) => {
             const value = Number(event.target.value);
             setFilter((current) => ({ ...current, priceMax: value >= priceCeiling ? null : value }));
           }} />
@@ -1187,7 +1187,7 @@ function Feed({ products, categories, searchQuery, navigate, language, t }) {
           <details>
             <summary>{t.price}: {filter.priceMax === null ? '∞' : money(filter.priceMax, 'EUR', language)}</summary>
             <div className="mobilePriceSlider">
-              <input aria-label={t.price} type="range" min="0" max={priceCeiling} step="25" value={selectedPrice} onChange={(event) => {
+              <input style={{ '--price-progress': priceProgress }} aria-label={t.price} type="range" min="0" max={priceCeiling} step="25" value={selectedPrice} onChange={(event) => {
                 const value = Number(event.target.value);
                 setFilter((current) => ({ ...current, priceMax: value >= priceCeiling ? null : value }));
               }} />
